@@ -17,14 +17,6 @@ export const metadata: Metadata = {
     description: "Candidate Ranking for Adaptive Novel Enzymes — Physics-informed AI for industrial biotechnology",
     url: "https://dennettlabs.com",
     siteName: "Dennett Labs",
-    images: [
-      {
-        url: "/dennettlabslogo.png",
-        width: 1200,
-        height: 630,
-        alt: "Dennett Labs Logo",
-      },
-    ],
     locale: "en_US",
     type: "website",
   },
@@ -32,7 +24,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "CRANE | Dennett Labs",
     description: "Candidate Ranking for Adaptive Novel Enzymes — Physics-informed AI for industrial biotechnology",
-    images: ["/dennettlabslogo.png"],
   },
 };
 
