@@ -97,9 +97,9 @@ export default function LandingPage() {
   return (
     <>
       {/* HERO */}
-      <section className="relative w-full h-screen hero-bg flex flex-col justify-center items-center text-center px-8 md:px-12">
+      <section className="relative w-full h-screen hero-bg flex flex-col justify-center items-center text-center px-5 md:px-12">
         <div className="max-w-[1000px] mx-auto z-10 pt-20">
-          <h1 className="text-[clamp(3.5rem,8vw,7.5rem)] font-extrabold tracking-[-0.03em] leading-[0.95] text-[#1a1d2e] animate-fade-up">
+          <h1 className="text-[clamp(2.5rem,8vw,7.5rem)] font-extrabold tracking-[-0.03em] leading-[0.95] text-[#1a1d2e] animate-fade-up">
             Programmable<br />
             Biology
           </h1>
@@ -116,7 +116,7 @@ export default function LandingPage() {
 
       {/* MEET CRANE - MACBOOK PRO LAPTOP FRAME CONTAINING WHITE DASHBOARD */}
       <section className="w-full border-t border-[#1a1d2e]/[0.05] hero-bg" ref={track}>
-        <div className="max-w-[1400px] mx-auto px-8 md:px-12 py-28 md:py-36">
+        <div className="max-w-[1400px] mx-auto px-5 md:px-12 py-28 md:py-36">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center reveal" ref={track}>
 
             {/* Left Column: Clean Text Stack */}
@@ -149,8 +149,8 @@ export default function LandingPage() {
                   <div className="relative w-full rounded-sm overflow-hidden bg-white" style={{ aspectRatio: '16 / 10' }}>
 
                     {/* Dashboard content scaled down inside the screen */}
-                    <div className="absolute inset-0 overflow-hidden">
-                      <div className="origin-top-left w-full h-full overflow-hidden flex flex-row text-left font-sans">
+                    <div className="absolute inset-0 overflow-x-auto overflow-y-hidden hide-scroll">
+                      <div className="min-w-[700px] h-full overflow-hidden flex flex-row text-left font-sans">
 
                         {/* Sidebar */}
                         <div className="w-[140px] bg-[#f8fafc] p-3 border-r border-[#e2e8f0] flex flex-col shrink-0">
@@ -284,7 +284,7 @@ export default function LandingPage() {
 
       {/* THE FUNNEL */}
       <section className="w-full border-t border-[#1a1d2e]/[0.05] page-bg" ref={track}>
-        <div className="max-w-[1400px] mx-auto px-8 md:px-12 py-28 md:py-36">
+        <div className="max-w-[1400px] mx-auto px-5 md:px-12 py-28 md:py-36">
           <div className="max-w-2xl mb-20 reveal" ref={track}>
             <h2 className="text-[2.5rem] md:text-[3rem] font-extrabold tracking-[-0.02em] leading-[1.05] text-[#1a1d2e]">
               A computational funnel that finds the needle.
@@ -332,7 +332,7 @@ export default function LandingPage() {
 
       {/* WHY WE EXIST */}
       <section className="w-full border-t border-[#1a1d2e]/[0.05] hero-bg" ref={track}>
-        <div className="max-w-[1400px] mx-auto px-8 md:px-12 py-32 md:py-40">
+        <div className="max-w-[1400px] mx-auto px-5 md:px-12 py-32 md:py-40">
           <div className="grid md:grid-cols-12 gap-12 reveal" ref={track}>
             <div className="md:col-span-12 lg:col-span-10 lg:col-start-2">
               <h2 className="text-[3rem] md:text-[4rem] font-extrabold tracking-[-0.02em] leading-[1] text-[#1a1d2e] mb-14">
@@ -351,7 +351,7 @@ export default function LandingPage() {
 
       {/* APPLICATIONS - RESTORED HOVER PILLS & STUDIO DISPLAY MONITOR FRAME */}
       <section className="w-full hero-bg" ref={track}>
-        <div className="max-w-[1400px] mx-auto px-8 md:px-12 py-28 md:py-36">
+        <div className="max-w-[1400px] mx-auto px-5 md:px-12 py-28 md:py-36">
           <div className="max-w-3xl mb-20 reveal" ref={track}>
             <h2 className="text-[2.5rem] md:text-[3rem] font-extrabold tracking-[-0.02em] leading-[1.05] text-[#1a1d2e]">
               You define the constraints.<br />We compute the biology.
@@ -397,7 +397,8 @@ export default function LandingPage() {
 
                   {/* Screen with constrained aspect ratio */}
                   <div className="relative w-full rounded-sm overflow-hidden bg-white" style={{ aspectRatio: '16 / 10' }}>
-                    <div className="absolute inset-0 overflow-hidden p-4 md:p-5 font-sans text-[#1a1d2e] space-y-4">
+                    <div className="absolute inset-0 overflow-x-auto overflow-y-hidden hide-scroll">
+                      <div className="min-w-[500px] h-full p-4 md:p-5 font-sans text-[#1a1d2e] space-y-4 flex flex-col justify-center">
 
                       {/* Monitor Header */}
                       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#e2e8f0] pb-3">
@@ -439,7 +440,8 @@ export default function LandingPage() {
                           </div>
                         </div>
                       </div>
-
+                      
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -463,7 +465,7 @@ export default function LandingPage() {
 
       {/* CTA */}
       <section className="w-full border-t border-[#1a1d2e]/[0.05] hero-bg" ref={track}>
-        <div className="max-w-[1400px] mx-auto px-8 md:px-12 py-28 md:py-36 text-center reveal" ref={track}>
+        <div className="max-w-[1400px] mx-auto px-5 md:px-12 py-28 md:py-36 text-center reveal" ref={track}>
           <h2 className="text-[2.5rem] md:text-[3.5rem] font-extrabold tracking-[-0.02em] leading-[1.05] text-[#1a1d2e] mb-5">
             Ready to discover your next industrial catalyst?
           </h2>
