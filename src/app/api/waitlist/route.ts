@@ -23,15 +23,15 @@ export async function POST(request: Request) {
 
     if (dbError) {
       console.error('Supabase Error:', dbError);
-      
+
       // If it's a unique constraint violation (like email already exists)
       if (dbError.code === '23505') {
-         return NextResponse.json(
+        return NextResponse.json(
           { error: 'This email is already on the waitlist.' },
           { status: 409 }
         );
       }
-      
+
       return NextResponse.json(
         { error: 'Failed to add to waitlist. Please try again later.' },
         { status: 500 }
@@ -40,7 +40,7 @@ export async function POST(request: Request) {
 
     // 2. Send email via Resend
     const { error: emailError } = await resend.emails.send({
-      from: 'Dennett Labs <noreply@dennettlabs.com>',
+      from: 'Dennett Labs <welcome@mail.dennettlabs.com>',
       to: email,
       subject: 'Welcome to the CRANE Waitlist',
       html: `
