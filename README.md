@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🧬 CRANE | Dennett Labs
 
-## Getting Started
+Welcome to the **CRANE Landing Page** repository for [Dennett Labs](https://dennettlabs.com).
 
-First, run the development server:
+CRANE (Candidate Ranking for Adaptive Novel Enzymes) is our flagship physics-informed AI platform designed for industrial biotechnology. This repository houses the public-facing landing page and the integrated waitlist system.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🚀 Tech Stack
+
+- **Framework**: Next.js (App Router)
+- **Styling**: Tailwind CSS
+- **Language**: TypeScript
+- **Database**: Supabase (Waitlist storage)
+- **Email Service**: Resend (Automated confirmation emails)
+- **Deployment**: Vercel
+
+## ⚙️ Environment Variables
+
+To run the project locally, you will need to create a `.env.local` file at the root of the project with the following keys:
+
+```env
+# Supabase
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
+
+# Resend
+RESEND_API_KEY=your_resend_api_key
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+*Note: We use the `SUPABASE_SERVICE_ROLE_KEY` to securely perform server-side database insertions in our API routes, bypassing the need for Row Level Security (RLS) policies for anonymous users.*
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ Local Development
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-## Learn More
+2. Run the development server:
+   ```bash
+   npm run dev
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+3. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📬 Waitlist Architecture
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The waitlist form on the site is wired to a custom Next.js API route (`/api/waitlist`). When a user submits their information:
+1. The user's name and email are securely inserted into the Supabase `waitlist` table.
+2. If the insertion is successful, Resend automatically triggers a styled, branded welcome email from `noreply@mail.dennettlabs.com` to the user.
+3. The frontend UI features a deliberate artificial loading delay (3.5s) to provide a premium "heavy lifting" aesthetic before displaying the success state.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🔗 Live Site
+[https://dennettlabs.com](https://dennettlabs.com)
