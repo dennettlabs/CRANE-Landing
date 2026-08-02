@@ -24,7 +24,7 @@ export default function WaitlistPage() {
         body: JSON.stringify({ fullName, email }),
       });
       
-      const delayPromise = new Promise(resolve => setTimeout(resolve, 2500));
+      const delayPromise = new Promise(resolve => setTimeout(resolve, 3500));
       
       const [response] = await Promise.all([apiPromise, delayPromise]);
       const data = await response.json();
