@@ -11,6 +11,29 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "CRANE | Dennett Labs",
   description: "Candidate Ranking for Adaptive Novel Enzymes — Physics-informed AI for industrial biotechnology",
+  metadataBase: new URL("https://dennettlabs.com"),
+  openGraph: {
+    title: "CRANE | Dennett Labs",
+    description: "Candidate Ranking for Adaptive Novel Enzymes — Physics-informed AI for industrial biotechnology",
+    url: "https://dennettlabs.com",
+    siteName: "Dennett Labs",
+    images: [
+      {
+        url: "/dennettlabslogo.png",
+        width: 1200,
+        height: 630,
+        alt: "Dennett Labs Logo",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "CRANE | Dennett Labs",
+    description: "Candidate Ranking for Adaptive Novel Enzymes — Physics-informed AI for industrial biotechnology",
+    images: ["/dennettlabslogo.png"],
+  },
 };
 
 export default function RootLayout({

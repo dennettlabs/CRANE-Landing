@@ -40,16 +40,17 @@ export async function POST(request: Request) {
 
     // 2. Send email via Resend
     const { error: emailError } = await resend.emails.send({
-      from: 'Dennett Labs <welcome@mail.dennettlabs.com>',
+      from: 'Dennett Labs <noreply@mail.dennettlabs.com>',
       to: email,
-      subject: 'Welcome to the CRANE Waitlist',
+      subject: '🎉 Welcome to the CRANE Waitlist',
       html: `
         <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #1a1d2e; max-width: 600px; margin: 0 auto; padding: 40px 20px; background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; margin-top: 40px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
           <div style="text-align: center; margin-bottom: 30px;">
+            <img src="https://dennettlabs.com/dennettlabslogo.png" alt="Dennett Labs Logo" style="width: 48px; height: 48px; margin-bottom: 16px; display: inline-block;" />
             <h1 style="color: #1a1d2e; font-size: 24px; font-weight: 800; margin: 0; letter-spacing: -0.02em; text-transform: uppercase;">DENNETT LABS</h1>
           </div>
           <p style="font-size: 16px; line-height: 1.6; margin-bottom: 20px;">Hi ${fullName.split(' ')[0]},</p>
-          <p style="font-size: 16px; line-height: 1.6; margin-bottom: 20px;">Thank you for your interest in CRANE. You have been successfully added to our exclusive waitlist.</p>
+          <p style="font-size: 16px; line-height: 1.6; margin-bottom: 20px;">Thank you for your interest in CRANE. You have been successfully added to our exclusive waitlist! 🎉</p>
           <p style="font-size: 16px; line-height: 1.6; margin-bottom: 30px;">We are currently rolling out access to select enterprise partners. We will be in touch with next steps as soon as a spot opens up for you.</p>
           <hr style="border: 0; border-top: 1px solid #e2e8f0; margin-bottom: 30px;" />
           <p style="font-size: 14px; color: #64748b; margin: 0;">Best,<br/>The Dennett Labs Team</p>
