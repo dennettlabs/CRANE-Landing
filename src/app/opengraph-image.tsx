@@ -10,6 +10,11 @@ export const size = {
 export const contentType = 'image/png';
 
 export default async function Image() {
+  const logoUrl = new URL('../../public/dennettlabslogo.png', import.meta.url);
+  const logoData = await fetch(logoUrl).then((res) => res.arrayBuffer());
+  const logoBase64 = Buffer.from(logoData).toString('base64');
+  const src = `data:image/png;base64,${logoBase64}`;
+
   return new ImageResponse(
     (
       <div
@@ -23,7 +28,7 @@ export default async function Image() {
         }}
       >
         <img 
-          src="https://dennettlabs.com/dennettlabslogo.png" 
+          src={src} 
           alt="Dennett Labs Logo"
           width={400}
           height={400}
