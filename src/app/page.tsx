@@ -107,9 +107,9 @@ export default function LandingPage() {
             Nature already built the enzyme you need. We use AI to find it, test it, and hand you a ranked shortlist—before you spend a single dollar in the lab.
           </p>
           <div className="mt-14 animate-fade-up delay-300">
-            <Link href="/waitlist" className="btn-premium">
-              Launch CRANE Platform
-            </Link>
+            <a href="https://crane.dennettlabs.com" target="_blank" rel="noopener noreferrer" className="btn-premium">
+              Launch CRANE
+            </a>
           </div>
         </div>
       </section>
@@ -473,9 +473,9 @@ export default function LandingPage() {
             Input your target temperature, pH, and manufacturing constraints. The CRANE platform instantly computes a verified shortlist of natural enzymes ready for your process.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/waitlist" className="btn-premium">
-              Launch CRANE Platform <ArrowRight className="w-4 h-4" />
-            </Link>
+            <a href="https://crane.dennettlabs.com" target="_blank" rel="noopener noreferrer" className="btn-premium">
+              Launch CRANE <ArrowRight className="w-4 h-4" />
+            </a>
             <Link href="/contact" className="btn-outline">
               Talk to Us
             </Link>

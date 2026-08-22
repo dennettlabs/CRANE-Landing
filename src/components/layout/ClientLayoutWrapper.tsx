@@ -41,9 +41,9 @@ export default function ClientLayoutWrapper({ children }: { children: React.Reac
 
           {/* Try CRANE - Right */}
           <div className="w-48 flex justify-end">
-            <Link href="/waitlist" className="text-[13px] font-bold bg-[#1a1d2e] text-white px-5 py-2.5 rounded-full hover:bg-[#2b5ea8] transition-colors tracking-[0.02em]">
-              Try CRANE
-            </Link>
+            <a href="https://crane.dennettlabs.com" target="_blank" rel="noopener noreferrer" className="text-[13px] font-bold bg-[#1a1d2e] text-white px-5 py-2.5 rounded-full hover:bg-[#2b5ea8] transition-colors tracking-[0.02em]">
+              Launch CRANE
+            </a>
           </div>
 
         </div>
@@ -70,7 +70,7 @@ export default function ClientLayoutWrapper({ children }: { children: React.Reac
             </div>
             
             <div className="flex flex-wrap items-center gap-8 md:gap-12 text-[14px] font-semibold tracking-[0.02em]">
-              <Link href="/waitlist" className="text-[#1a1d2e]/40 hover:text-[#1a1d2e] transition-colors">Platform</Link>
+              <a href="https://crane.dennettlabs.com" target="_blank" rel="noopener noreferrer" className="text-[#1a1d2e]/40 hover:text-[#1a1d2e] transition-colors">Platform</a>
               <Link href="/about" className="text-[#1a1d2e]/40 hover:text-[#1a1d2e] transition-colors">Science</Link>
               <Link href="/contact" className="text-[#1a1d2e]/40 hover:text-[#1a1d2e] transition-colors">Contact</Link>
               <span className="text-[#1a1d2e]/20 hidden md:block">|</span>
