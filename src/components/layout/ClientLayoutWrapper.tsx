@@ -3,9 +3,11 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { Menu, X } from "lucide-react";
 
 export default function ClientLayoutWrapper({ children }: { children: React.ReactNode }) {
   const [scrolled, setScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -16,11 +18,11 @@ export default function ClientLayoutWrapper({ children }: { children: React.Reac
   return (
     <div className="flex flex-col min-h-screen">
       {/* HEADER */}
-      <header className={`fixed top-0 w-full z-50 transition-all duration-500 ${scrolled ? "header-blur shadow-[0_1px_0_rgba(0,0,0,0.04)]" : ""}`}>
-        <div className="max-w-[1400px] mx-auto px-8 md:px-12 h-20 flex items-center justify-between">
+      <header className={`fixed top-0 w-full z-50 transition-all duration-500 ${scrolled ? "header-blur shadow-[0_1px_0_rgba(0,0,0,0.04)]" : ""} ${isMobileMenuOpen ? "bg-white" : ""}`}>
+        <div className="max-w-[1400px] mx-auto px-5 md:px-12 h-20 flex items-center justify-between">
           
           {/* Logo - Left */}
-          <Link href="/" className="flex items-center gap-3 w-48">
+          <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 w-auto md:w-48 z-50 relative">
             <div className="relative w-9 h-9">
               <Image src="/dennettlabslogo.png" alt="Dennett Labs" fill sizes="36px" className="object-contain brightness-0" />
             </div>
@@ -40,13 +42,29 @@ export default function ClientLayoutWrapper({ children }: { children: React.Reac
           </nav>
 
           {/* Try CRANE - Right */}
-          <div className="w-48 flex justify-end">
-            <a href="https://crane.dennettlabs.com" target="_blank" rel="noopener noreferrer" className="text-[13px] font-bold bg-[#1a1d2e] text-white px-5 py-2.5 rounded-full hover:bg-[#2b5ea8] transition-colors tracking-[0.02em]">
+          <div className="hidden md:flex w-48 justify-end">
+            <a href={process.env.NEXT_PUBLIC_CRANE_URL || "https://crane.dennettlabs.com"} target="_blank" rel="noopener noreferrer" className="text-[13px] font-bold bg-[#1a1d2e] text-white px-5 py-2.5 rounded-full hover:bg-[#2b5ea8] transition-colors tracking-[0.02em]">
               Launch CRANE
             </a>
           </div>
-
+          
+          {/* Mobile Menu Toggle */}
+          <button 
+            className="md:hidden z-50 relative p-2 text-[#1a1d2e]"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
         </div>
+
+        {/* Mobile Menu Overlay */}
+        {isMobileMenuOpen && (
+          <div className="fixed inset-0 bg-white z-40 flex flex-col items-center justify-center space-y-8 pt-20">
+            <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-2xl font-semibold text-[#1a1d2e]">About Us</Link>
+            <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="text-2xl font-semibold text-[#1a1d2e]">Talk to Us</Link>
+            <a href={process.env.NEXT_PUBLIC_CRANE_URL || "https://crane.dennettlabs.com"} onClick={() => setIsMobileMenuOpen(false)} target="_blank" rel="noopener noreferrer" className="text-xl font-bold bg-[#1a1d2e] text-white px-8 py-4 rounded-full mt-4">Launch CRANE</a>
+          </div>
+        )}
       </header>
 
       <main className="flex-1">{children}</main>
@@ -70,7 +88,7 @@ export default function ClientLayoutWrapper({ children }: { children: React.Reac
             </div>
             
             <div className="flex flex-wrap items-center gap-8 md:gap-12 text-[14px] font-semibold tracking-[0.02em]">
-              <a href="https://crane.dennettlabs.com" target="_blank" rel="noopener noreferrer" className="text-[#1a1d2e]/40 hover:text-[#1a1d2e] transition-colors">Platform</a>
+              <a href={process.env.NEXT_PUBLIC_CRANE_URL || "https://crane.dennettlabs.com"} target="_blank" rel="noopener noreferrer" className="text-[#1a1d2e]/40 hover:text-[#1a1d2e] transition-colors">Platform</a>
               <Link href="/about" className="text-[#1a1d2e]/40 hover:text-[#1a1d2e] transition-colors">Science</Link>
               <Link href="/contact" className="text-[#1a1d2e]/40 hover:text-[#1a1d2e] transition-colors">Contact</Link>
               <span className="text-[#1a1d2e]/20 hidden md:block">|</span>
