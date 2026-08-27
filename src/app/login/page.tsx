@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
 
 export default function LoginPage() {
-  redirect("https://crane.dennettlabs.com");
+  redirect(process.env.NEXT_PUBLIC_CRANE_URL || "https://crane.dennettlabs.com");
 }
