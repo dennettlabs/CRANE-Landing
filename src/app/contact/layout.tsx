@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description:
     "Tell us your industrial constraints — pH, temperature, substrate — and we'll compute the exact enzymes your manufacturing process needs. Start a CRANE pilot today.",
   openGraph: {
-    title: "Contact — Dennett Labs",
+    title: "Contact — Dennett AI Labs",
     description:
       "Initiate an enzyme discovery pilot. Specify your industrial constraints and we compute the biology.",
   },
