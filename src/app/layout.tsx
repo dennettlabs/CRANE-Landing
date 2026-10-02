@@ -135,6 +135,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} antialiased`}>
       <head>
+        <Script 
+          src="https://cmp.osano.com/IKrtMdjTv8/b9e54013-d30d-402b-8e1f-6d773149b24c/osano.js" 
+          strategy="beforeInteractive" 
+        />
         <Script id="google-tag-manager" strategy="afterInteractive">
           {`
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
