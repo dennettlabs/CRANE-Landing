@@ -96,8 +96,11 @@ export default function ClientLayoutWrapper({ children }: { children: React.Reac
             </div>
           </div>
           
-          <div className="flex justify-between items-center text-[12px] font-medium text-[#1a1d2e]/30 z-10 relative">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center text-[12px] font-medium text-[#1a1d2e]/30 z-10 relative gap-2">
             <p>© 2026 Dennett Labs. All rights reserved.</p>
+            <div className="flex gap-4">
+              <Link href="/privacy" className="hover:text-[#1a1d2e] transition-colors">Privacy Policy</Link>
+            </div>
           </div>
         </div>
 
