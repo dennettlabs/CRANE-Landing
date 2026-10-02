@@ -11,10 +11,10 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Dennett Labs — AI-Powered Enzyme Discovery for Industrial Biotechnology",
-    template: "%s | Dennett Labs",
+    default: "Dennett AI Labs — AI-Powered Enzyme Discovery for Industrial Biotechnology",
+    template: "%s | Dennett AI Labs",
   },
-  description: "Dennett Labs builds computational infrastructure for programmable biology. Our CRANE platform uses physics-informed AI to discover, simulate, and rank extremophile enzymes for industrial manufacturing — replacing months of wet-lab trial-and-error with hours of computation.",
+  description: "Dennett AI Labs builds computational infrastructure for programmable biology. Our CRANE platform uses physics-informed AI to discover, simulate, and rank extremophile enzymes for industrial manufacturing — replacing months of wet-lab trial-and-error with hours of computation.",
   metadataBase: new URL("https://dennettlabs.com"),
   keywords: [
     "enzyme discovery", "computational biology", "protein engineering",
@@ -28,13 +28,13 @@ export const metadata: Metadata = {
     "high-throughput screening", "enzyme engineering", "industrial enzymes",
     "TechBio", "biotech AI", "computational screening",
     "protein design", "de novo protein", "metagenomics",
-    "computational enzyme design", "enzyme optimization",
+    "computational enzyme design", "enzyme optimization", "Dennett AI Labs",
   ],
   openGraph: {
-    title: "Dennett Labs — AI-Powered Enzyme Discovery",
+    title: "Dennett AI Labs — AI-Powered Enzyme Discovery",
     description: "Physics-informed AI infrastructure for discovering extremophile enzymes. We computationally screen millions of protein sequences to find the exact industrial catalysts your manufacturing process needs.",
     url: "https://dennettlabs.com",
-    siteName: "Dennett Labs",
+    siteName: "Dennett AI Labs",
     locale: "en_US",
     type: "website",
     images: [
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dennett Labs — AI-Powered Enzyme Discovery",
+    title: "Dennett AI Labs — AI-Powered Enzyme Discovery",
     description: "Physics-informed AI infrastructure for discovering extremophile enzymes. Computational screening of millions of protein sequences for industrial biotechnology.",
     images: ["/opengraph-image.png"],
   },
@@ -60,8 +60,8 @@ const jsonLd = {
     {
       "@type": "Organization",
       "@id": "https://dennettlabs.com/#organization",
-      "name": "Dennett Labs",
-      "alternateName": ["Dennett AI Labs", "DennettLabs"],
+      "name": "Dennett AI Labs",
+      "alternateName": ["Dennett Labs", "DennettLabs"],
       "url": "https://dennettlabs.com",
       "logo": "https://dennettlabs.com/icon.png",
       "foundingDate": "2026",
@@ -97,7 +97,7 @@ const jsonLd = {
       "@type": "WebSite",
       "@id": "https://dennettlabs.com/#website",
       "url": "https://dennettlabs.com",
-      "name": "Dennett Labs",
+      "name": "Dennett AI Labs",
       "description": "AI-powered enzyme discovery for industrial biotechnology",
       "publisher": { "@id": "https://dennettlabs.com/#organization" }
     },
@@ -133,7 +133,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} antialiased`}>
+    <html lang="en" className={`${inter.variable} antialiased`} suppressHydrationWarning>
       <head>
         <Script 
           src="https://cmp.osano.com/IKrtMdjTv8/b9e54013-d30d-402b-8e1f-6d773149b24c/osano.js" 
@@ -148,12 +148,13 @@ export default function RootLayout({
             })(window,document,'script','dataLayer','GTM-TMK4VCPH');
           `}
         </Script>
-        <script
+        <Script
+          id="json-ld"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
         />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-TMK4VCPH"
