@@ -135,6 +135,23 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} antialiased`} suppressHydrationWarning>
       <head>
+        <Script id="google-consent-mode" strategy="beforeInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            
+            // Set default consent to denied globally for all regions
+            gtag('consent', 'default', {
+              'ad_storage': 'denied',
+              'ad_user_data': 'denied',
+              'ad_personalization': 'denied',
+              'analytics_storage': 'denied',
+              'functionality_storage': 'denied',
+              'personalization_storage': 'denied',
+              'security_storage': 'denied'
+            });
+          `}
+        </Script>
         <Script 
           src="https://cmp.osano.com/IKrtMdjTv8/b9e54013-d30d-402b-8e1f-6d773149b24c/osano.js" 
           strategy="beforeInteractive" 
