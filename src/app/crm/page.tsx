@@ -5,6 +5,7 @@ import { Send, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
 
 export default function CRMPage() {
   const [to, setTo] = useState('');
+  const [senderName, setSenderName] = useState('Founders');
   const [from, setFrom] = useState('founders@mail.dennettlabs.com');
   const [subject, setSubject] = useState('');
   const [body, setBody] = useState('');
@@ -20,7 +21,7 @@ export default function CRMPage() {
       const res = await fetch('/api/send', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ to, from, subject, body }),
+        body: JSON.stringify({ to, from: `${senderName} <${from}>`, subject, body }),
       });
 
       const data = await res.json();
@@ -69,13 +70,25 @@ export default function CRMPage() {
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2">
-                <label className="text-sm font-semibold text-[#1a1d2e] ml-1">From Alias</label>
+                <label className="text-sm font-semibold text-[#1a1d2e] ml-1">Sender Name</label>
+                <input 
+                  type="text" 
+                  value={senderName} 
+                  onChange={e => setSenderName(e.target.value)}
+                  className="input-premium"
+                  placeholder="e.g. Daniel from Dennett"
+                  required
+                />
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-[#1a1d2e] ml-1">From Email</label>
                 <input 
                   type="text" 
                   value={from} 
                   onChange={e => setFrom(e.target.value)}
                   className="input-premium"
-                  placeholder="e.g. founders@dennett.ai"
+                  placeholder="e.g. founders@mail.dennettlabs.com"
                   required
                 />
               </div>
