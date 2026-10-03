@@ -19,9 +19,11 @@ export async function POST(request: Request) {
     });
 
     if (data.error) {
+      console.error('Resend API Error:', data.error);
       return NextResponse.json({ error: data.error }, { status: 400 });
     }
 
+    console.log('Resend Email Sent Successfully. ID:', data.data?.id);
     return NextResponse.json(data);
   } catch (error: any) {
     return NextResponse.json({ error: { message: error.message } }, { status: 500 });
