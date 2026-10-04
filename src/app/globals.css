@@ -175,6 +175,11 @@
   0%, 100% { transform: translateY(0); opacity: 0.5; }
   50% { transform: translateY(5px); opacity: 0.9; }
 }
+@keyframes slide-up {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.animate-slide-up { animation: slide-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
 
 .animate-fade-up { animation: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards; opacity: 0; }
 .animate-fade-in { animation: fade-in 0.7s ease-out forwards; opacity: 0; }
