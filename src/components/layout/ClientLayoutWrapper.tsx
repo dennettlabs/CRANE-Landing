@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+import CookieConsent from "@/components/layout/CookieConsent";
 
 export default function ClientLayoutWrapper({ children }: { children: React.ReactNode }) {
   const [scrolled, setScrolled] = useState(false);
@@ -100,6 +101,7 @@ export default function ClientLayoutWrapper({ children }: { children: React.Reac
             <p>© 2026 Dennett Labs. All rights reserved.</p>
             <div className="flex gap-4">
               <Link href="/privacy" className="hover:text-[#1a1d2e] transition-colors">Privacy Policy</Link>
+              <Link href="/terms" className="hover:text-[#1a1d2e] transition-colors">Terms of Service</Link>
             </div>
           </div>
         </div>
@@ -111,6 +113,7 @@ export default function ClientLayoutWrapper({ children }: { children: React.Reac
           </span>
         </div>
       </footer>
+      <CookieConsent />
     </div>
   );
 }
