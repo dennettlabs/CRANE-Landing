@@ -18,6 +18,7 @@ export async function POST(request: Request) {
 
     const data = await resend.emails.send({
       from,
+      replyTo: 'daniel@dennettlabs.com',
       to: [to],
       subject,
       text: body,
