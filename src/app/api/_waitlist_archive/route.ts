@@ -41,6 +41,7 @@ export async function POST(request: Request) {
     // 2. Send email via Resend
     const { error: emailError } = await resend.emails.send({
       from: 'Dennett Labs <noreply@mail.dennettlabs.com>',
+      replyTo: 'daniel@dennettlabs.com',
       to: email,
       subject: '🎉 Welcome to the CRANE Waitlist',
       html: `
