@@ -24,6 +24,9 @@ SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
 
 # Resend
 RESEND_API_KEY=your_resend_api_key
+
+# HubSpot tracking (optional; defaults to portal 149354630)
+NEXT_PUBLIC_HUBSPOT_PORTAL_ID=149354630
 ```
 
 *Note: We use the `SUPABASE_SERVICE_ROLE_KEY` to securely perform server-side database insertions in our API routes, bypassing the need for Row Level Security (RLS) policies for anonymous users.*

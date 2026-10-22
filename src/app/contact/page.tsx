@@ -10,7 +10,6 @@ export default function ContactPage() {
             Tell us the exact constraints of your industrial process. We will compute the biology required to survive it.
           </p>
         </div>
-
         <div className="glass rounded-2xl p-8 md:p-10 animate-fade-up delay-200">
           <form className="space-y-5">
             <div className="grid grid-cols-2 gap-4">

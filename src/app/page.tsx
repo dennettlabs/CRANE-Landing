@@ -17,6 +17,7 @@ export default function LandingPage() {
     return () => obs.disconnect();
   }, []);
 
+
   const track = (el: HTMLElement | null) => {
     if (el && !refs.current.includes(el)) refs.current.push(el);
   };
