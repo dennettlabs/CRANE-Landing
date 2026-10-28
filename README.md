@@ -24,6 +24,10 @@ SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
 
 # Resend
 RESEND_API_KEY=your_resend_api_key
+CONTACT_INBOX=support@dennettlabs.com,daniel@dennettlabs.com # Comma-separated team notification inboxes (defaults to support@dennettlabs.com,daniel@dennettlabs.com)
+
+# Optional Contact Info
+NEXT_PUBLIC_CONTACT_PHONE="+254 700 000 000"
 
 # HubSpot tracking (optional; defaults to portal 149354630)
 NEXT_PUBLIC_HUBSPOT_PORTAL_ID=149354630
@@ -44,6 +48,14 @@ NEXT_PUBLIC_HUBSPOT_PORTAL_ID=149354630
    ```
 
 3. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## 📬 Contact Form & Pilot Inquiries
+
+The pilot initiation form (`/contact`) submits to `POST /api/contact`:
+1. **Spam Mitigation**: Uses a hidden honeypot field (`website`) that returns `200` silently without sending if filled by automated bots.
+2. **Team Notification**: Sends an email via Resend to the addresses in `CONTACT_INBOX` (defaulting to `support@dennettlabs.com,daniel@dennettlabs.com`) with the visitor's work email as `replyTo`.
+3. **Visitor Acknowledgement**: Sends a branded confirmation email to the visitor from `noreply@mail.dennettlabs.com` with `replyTo: support@dennettlabs.com`.
+4. **Resilience**: If the team notification fails, returns `500`. Visitor acknowledgement failures are logged without blocking the successful submission.
 
 ## 📬 Waitlist Architecture
 
