@@ -25,12 +25,14 @@ export default function ContactPage() {
     setForm((current) => ({ ...current, [field]: event.target.value }));
   };
 
+  // Handle submission of industrial constraints and pilot inquiry
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     setStatus("sending");
     setErrorMessage("");
 
     try {
+      // Submit pilot constraints payload to contact API endpoint
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
