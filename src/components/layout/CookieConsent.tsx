@@ -5,6 +5,7 @@ import Link from "next/link";
 import Script from "next/script";
 import { X } from "lucide-react";
 
+// HubSpot tracking configuration (EU hublet script loader)
 const HUBSPOT_PORTAL_ID =
   process.env.NEXT_PUBLIC_HUBSPOT_PORTAL_ID || "149354630";
 const HUBSPOT_SCRIPT_ID = "hs-script-loader";
