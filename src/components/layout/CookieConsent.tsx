@@ -65,6 +65,7 @@ export default function CookieConsent() {
     if (saved) {
       // User already made a choice — apply it silently on every page load
       updateGoogleConsent(saved);
+      // Conditionally enable HubSpot tracking if consent was previously granted
       if (saved === "granted") setHubspotEnabled(true);
     } else {
       // No choice yet — show the banner after a brief delay
@@ -78,6 +79,7 @@ export default function CookieConsent() {
     localStorage.setItem("cookie-consent", choice);
     // Update Google Consent Mode
     updateGoogleConsent(choice);
+    // Dynamically activate HubSpot tracking script when user grants consent
     if (choice === "granted") setHubspotEnabled(true);
     // Animate out
     setAnimateOut(true);
