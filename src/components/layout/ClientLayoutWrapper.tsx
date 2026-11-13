@@ -50,9 +50,11 @@ export default function ClientLayoutWrapper({ children }: { children: React.Reac
           </div>
           
           {/* Mobile Menu Toggle */}
-          <button 
+          <button
             className="md:hidden z-50 relative p-2 text-[#1a1d2e]"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isMobileMenuOpen}
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
