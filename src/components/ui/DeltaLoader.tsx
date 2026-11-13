@@ -81,8 +81,6 @@ export default function DeltaLoader({ message, className = "", size = "md" }: De
         />
       </div>
 
-
-
       {/* Monospaced Telemetry Ticker */}
       <div className="mt-4 text-center">
         <p className="text-[#1a1d2e]/60 dark:text-white/60 text-sm leading-relaxed transition-opacity duration-300">
