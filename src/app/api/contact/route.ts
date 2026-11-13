@@ -67,9 +67,9 @@ export async function POST(request: Request) {
     const lastName = typeof body?.lastName === "string" ? body.lastName.trim() : "";
     const company = typeof body?.company === "string" ? body.company.trim() : "";
     const email = typeof body?.email === "string" ? body.email.trim() : "";
-    const process = typeof body?.process === "string" ? body.process.trim() : "";
+    const constraints = typeof body?.process === "string" ? body.process.trim() : "";
 
-    if (!firstName || !lastName || !company || !email || !process) {
+    if (!firstName || !lastName || !company || !email || !constraints) {
       return NextResponse.json(
         { error: { message: "All fields are required." } },
         { status: 400 }
@@ -93,7 +93,7 @@ export async function POST(request: Request) {
       `Work email: ${email}`,
       "",
       "Industrial constraints:",
-      process,
+      constraints,
     ].join("\n");
 
     const teamHtml = brandedHtml(`
@@ -101,7 +101,7 @@ export async function POST(request: Request) {
       <p style="font-size: 16px; line-height: 1.6; margin: 0 0 8px;"><strong>Company / Facility:</strong> ${escapeHtml(company)}</p>
       <p style="font-size: 16px; line-height: 1.6; margin: 0 0 8px;"><strong>Work email:</strong> <a href="mailto:${escapeHtml(email)}" style="color: #2b5ea8; text-decoration: none;">${escapeHtml(email)}</a></p>
       <p style="font-size: 16px; line-height: 1.6; margin: 20px 0 8px;"><strong>Industrial constraints:</strong></p>
-      <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; font-size: 15px; line-height: 1.6; white-space: pre-wrap; font-family: monospace, -apple-system, sans-serif;">${escapeHtml(process)}</div>
+      <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; font-size: 15px; line-height: 1.6; white-space: pre-wrap; font-family: monospace, -apple-system, sans-serif;">${escapeHtml(constraints)}</div>
     `);
 
     const teamResult = await resend.emails.send({
