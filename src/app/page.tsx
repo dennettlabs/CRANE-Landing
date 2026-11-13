@@ -371,6 +371,7 @@ export default function LandingPage() {
                   const isSelected = activeVertical === ind;
                   return (
                     <button
+                      type="button"
                       key={ind}
                       onClick={() => setActiveVertical(ind)}
                       onMouseEnter={() => setActiveVertical(ind)}
