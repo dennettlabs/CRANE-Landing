@@ -46,7 +46,7 @@ function brandedHtml(inner: string) {
 
 export async function POST(request: Request) {
   try {
-    let body: any;
+    let body: Record<string, unknown>;
     try {
       body = await request.json();
     } catch {
