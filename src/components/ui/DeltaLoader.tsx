@@ -8,7 +8,7 @@ const TELEMETRY_MESSAGES = [
   "EVALUATING EVOLUTIONARY PERPLEXITY...",
   "RELAXING STERIC CLASHES...",
   "SYNTHESIZING LEADERBOARD...",
-];
+] as const;
 
 interface DeltaLoaderProps {
   message?: string;
