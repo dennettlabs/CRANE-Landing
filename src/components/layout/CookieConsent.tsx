@@ -59,6 +59,7 @@ export default function CookieConsent() {
   const [visible, setVisible] = useState(false);
   const [animateOut, setAnimateOut] = useState(false);
   const [hubspotEnabled, setHubspotEnabled] = useState(false);
+  const [hasInitialized, setHasInitialized] = useState(false);
 
   useEffect(() => {
     const saved = getSavedConsent();
