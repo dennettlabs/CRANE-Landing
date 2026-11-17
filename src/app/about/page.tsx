@@ -14,7 +14,9 @@ export default function AboutPage() {
     refs.current.forEach((r) => r && obs.observe(r));
     return () => obs.disconnect();
   }, []);
-  const track = (el: HTMLElement | null) => { if (el && !refs.current.includes(el)) refs.current.push(el); };
+  const track = (el: HTMLElement | null) => {
+    if (el && !refs.current.includes(el)) refs.current.push(el);
+  };
 
   return (
     <>
