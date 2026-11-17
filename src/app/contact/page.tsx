@@ -5,21 +5,21 @@ import { AlertCircle, CheckCircle2, Loader2, Mail, MapPin, Phone } from "lucide-
 
 type FormStatus = "idle" | "sending" | "success" | "error";
 
-const emptyForm = {
+const EMPTY_FORM = {
   firstName: "",
   lastName: "",
   company: "",
   email: "",
   process: "",
   website: "",
-};
+} as const;
 
 export default function ContactPage() {
-  const [form, setForm] = useState(emptyForm);
+  const [form, setForm] = useState(EMPTY_FORM);
   const [status, setStatus] = useState<FormStatus>("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
-  const updateField = (field: keyof typeof emptyForm) => (
+  const updateField = (field: keyof typeof EMPTY_FORM) => (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setForm((current) => ({ ...current, [field]: event.target.value }));
@@ -45,7 +45,7 @@ export default function ContactPage() {
       }
 
       setStatus("success");
-      setForm(emptyForm);
+      setForm(EMPTY_FORM);
     } catch (error) {
       setStatus("error");
       setErrorMessage(
