@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import CookieConsent from "@/components/layout/CookieConsent";
 
+const CRANE_URL = process.env.NEXT_PUBLIC_CRANE_URL || "https://crane.dennettlabs.com";
+
 export default function ClientLayoutWrapper({ children }: { children: React.ReactNode }) {
   const [scrolled, setScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -44,7 +46,7 @@ export default function ClientLayoutWrapper({ children }: { children: React.Reac
 
           {/* Try CRANE - Right */}
           <div className="hidden md:flex w-48 justify-end">
-            <a href={process.env.NEXT_PUBLIC_CRANE_URL || "https://crane.dennettlabs.com"} target="_blank" rel="noopener noreferrer" className="text-[13px] font-bold bg-[#1a1d2e] text-white px-5 py-2.5 rounded-full hover:bg-[#2b5ea8] transition-colors tracking-[0.02em]">
+            <a href={CRANE_URL} target="_blank" rel="noopener noreferrer" className="text-[13px] font-bold bg-[#1a1d2e] text-white px-5 py-2.5 rounded-full hover:bg-[#2b5ea8] transition-colors tracking-[0.02em]">
               Launch CRANE
             </a>
           </div>
@@ -65,7 +67,7 @@ export default function ClientLayoutWrapper({ children }: { children: React.Reac
           <div className="fixed inset-0 bg-white z-40 flex flex-col items-center justify-center space-y-8 pt-20">
             <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-2xl font-semibold text-[#1a1d2e]">About Us</Link>
             <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="text-2xl font-semibold text-[#1a1d2e]">Talk to Us</Link>
-            <a href={process.env.NEXT_PUBLIC_CRANE_URL || "https://crane.dennettlabs.com"} onClick={() => setIsMobileMenuOpen(false)} target="_blank" rel="noopener noreferrer" className="text-xl font-bold bg-[#1a1d2e] text-white px-8 py-4 rounded-full mt-4">Launch CRANE</a>
+            <a href={CRANE_URL} onClick={() => setIsMobileMenuOpen(false)} target="_blank" rel="noopener noreferrer" className="text-xl font-bold bg-[#1a1d2e] text-white px-8 py-4 rounded-full mt-4">Launch CRANE</a>
           </div>
         )}
       </header>
@@ -91,7 +93,7 @@ export default function ClientLayoutWrapper({ children }: { children: React.Reac
             </div>
             
             <div className="flex flex-wrap items-center gap-8 md:gap-12 text-[14px] font-semibold tracking-[0.02em]">
-              <a href={process.env.NEXT_PUBLIC_CRANE_URL || "https://crane.dennettlabs.com"} target="_blank" rel="noopener noreferrer" className="text-[#1a1d2e]/40 hover:text-[#1a1d2e] transition-colors">Platform</a>
+              <a href={CRANE_URL} target="_blank" rel="noopener noreferrer" className="text-[#1a1d2e]/40 hover:text-[#1a1d2e] transition-colors">Platform</a>
               <Link href="/about" className="text-[#1a1d2e]/40 hover:text-[#1a1d2e] transition-colors">Science</Link>
               <Link href="/contact" className="text-[#1a1d2e]/40 hover:text-[#1a1d2e] transition-colors">Contact</Link>
               <span className="text-[#1a1d2e]/20 hidden md:block">|</span>
