@@ -13,6 +13,17 @@ const HUBSPOT_SCRIPT_SRC = `https://js-eu1.hs-scripts.com/${HUBSPOT_PORTAL_ID}.j
 
 type ConsentChoice = "granted" | "denied" | null;
 
+// Google Consent Mode v2 categories updated together for every choice.
+const CONSENT_CATEGORIES = [
+  "ad_storage",
+  "ad_user_data",
+  "ad_personalization",
+  "analytics_storage",
+  "functionality_storage",
+  "personalization_storage",
+  "security_storage",
+] as const;
+
 /**
  * Retrieves the saved cookie consent choice from localStorage.
  * Returns null if no choice has been made yet.
@@ -37,15 +48,11 @@ function updateGoogleConsent(choice: "granted" | "denied") {
     window.dataLayer.push(args);
   }
 
-  gtag("consent", "update", {
-    ad_storage: choice,
-    ad_user_data: choice,
-    ad_personalization: choice,
-    analytics_storage: choice,
-    functionality_storage: choice,
-    personalization_storage: choice,
-    security_storage: choice,
-  });
+  gtag(
+    "consent",
+    "update",
+    Object.fromEntries(CONSENT_CATEGORIES.map((category) => [category, choice]))
+  );
 }
 
 // Extend Window to include dataLayer for TypeScript
