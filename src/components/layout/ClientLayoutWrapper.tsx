@@ -23,7 +23,7 @@ export default function ClientLayoutWrapper({ children }: { children: React.Reac
       {/* HEADER */}
       <header className={`fixed top-0 w-full z-50 transition-all duration-500 ${scrolled ? "header-blur shadow-[0_1px_0_rgba(0,0,0,0.04)]" : ""} ${isMobileMenuOpen ? "bg-white" : ""}`}>
         <div className="max-w-[1400px] mx-auto px-5 md:px-12 h-20 flex items-center justify-between">
-          
+
           {/* Logo - Left */}
           <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 w-auto md:w-48 z-50 relative">
             <div className="relative w-9 h-9">
@@ -50,7 +50,7 @@ export default function ClientLayoutWrapper({ children }: { children: React.Reac
               Launch CRANE
             </a>
           </div>
-          
+
           {/* Mobile Menu Toggle */}
           <button
             className="md:hidden z-50 relative p-2 text-[#1a1d2e]"
@@ -91,7 +91,7 @@ export default function ClientLayoutWrapper({ children }: { children: React.Reac
                 The fastest way to find the exact enzyme you need.
               </p>
             </div>
-            
+
             <div className="flex flex-wrap items-center gap-8 md:gap-12 text-[14px] font-semibold tracking-[0.02em]">
               <a href={CRANE_URL} target="_blank" rel="noopener noreferrer" className="text-[#1a1d2e]/40 hover:text-[#1a1d2e] transition-colors">Platform</a>
               <Link href="/about" className="text-[#1a1d2e]/40 hover:text-[#1a1d2e] transition-colors">Science</Link>
@@ -100,7 +100,7 @@ export default function ClientLayoutWrapper({ children }: { children: React.Reac
               <span className="text-[#1a1d2e]/40">Nairobi, Kenya</span>
             </div>
           </div>
-          
+
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center text-[12px] font-medium text-[#1a1d2e]/30 z-10 relative gap-2">
             <p>© 2026 Dennett Labs. All rights reserved.</p>
             <div className="flex gap-4">
