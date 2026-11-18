@@ -96,7 +96,7 @@ export default function CookieConsent() {
           strategy="afterInteractive"
         />
       )}
-      {visible ? (
+      {visible && (
         <div
           className={`fixed bottom-0 left-0 right-0 z-[100] p-4 md:p-6 transition-all duration-500 ${
             animateOut
@@ -173,7 +173,7 @@ export default function CookieConsent() {
             </div>
           </div>
         </div>
-      ) : null}
+      )}
     </>
   );
 }
