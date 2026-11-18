@@ -31,7 +31,8 @@ export async function POST(request: Request) {
 
     console.log('Resend Email Sent Successfully. ID:', data.data?.id);
     return NextResponse.json(data);
-  } catch (error: any) {
-    return NextResponse.json({ error: { message: error.message } }, { status: 500 });
+  } catch (error) {
+    const message = error instanceof Error ? error.message : 'Internal server error.';
+    return NextResponse.json({ error: { message } }, { status: 500 });
   }
 }
